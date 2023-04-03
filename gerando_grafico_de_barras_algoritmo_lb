@@ -1,0 +1,260 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNOgs+dHyJfdbY5AqepHHxG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/brenodocarmo/Api-TCC/blob/main/gerando_grafico_de_barras_algoritmo_lb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Importação de Bibliotecas\n",
+        "import matplotlib.pyplot as plt\n",
+        "import csv\n",
+        "# from pprint import pprint"
+      ],
+      "metadata": {
+        "id": "mdXQAFB5POqj"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Caminho do arquivo\n",
+        "# arquivo = (\"/content/output_weight_round(1).csv\")\n",
+        "arquivo = (\"/content/output_round_robin(1).csv\")\n",
+        "\n",
+        "# Abrir arquivo\n",
+        "ler_arquivo= open(arquivo)\n",
+        "\n",
+        "# Ler arquivo\n",
+        "linhas = csv.reader(ler_arquivo)\n",
+        "\n",
+        "def nome_docker(linhas_do_aquivo):\n",
+        "  \"\"\"\n",
+        "  Através do método de fatiamento de string do python\n",
+        "  selecionamos todos os nomes das instâncias criada.\n",
+        "\n",
+        "  Ex:\n",
+        "\n",
+        "  ['487e7db09b2f', '9683b343f943', 'ba4209a480f9']\n",
+        "  \"\"\"\n",
+        "  nome_docker = []\n",
+        "  for linha in linhas:\n",
+        "      nome_docker.append(linha[0])\n",
+        "  \n",
+        "  return nome_docker\n",
+        " \n",
+        "\n",
+        "lista_nome = nome_docker(linhas_do_aquivo=linhas)\n",
+        "\n",
+        "print(lista_nome)"
+      ],
+      "metadata": {
+        "id": "w4r6y9g5X__i",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1f3d5014-e7b8-4bf3-e3c9-577f93f49ad0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485', '0fa9f20cc975']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Realiza a contagem de requisição para cada instância\n",
+        "def contador_requisicao(lista):\n",
+        "  dados = dict()\n",
+        "\n",
+        "  for nome in lista:\n",
+        "    if nome in dados:\n",
+        "      dados[nome] += 1\n",
+        "    else:\n",
+        "      dados[nome] = 1\n",
+        "  \n",
+        "  return dados\n",
+        "\n",
+        "contador_de_requisicao = contador_requisicao(lista_nome)\n",
+        "\n",
+        "# print(dados)\n",
+        "# print(a)\n",
+        "print(contador_de_requisicao)\n",
+        "# {'487e7db09b2f': 636, '9683b343f943': 273, 'ba4209a480f9': 91}"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_mlYzunqhqqZ",
+        "outputId": "deaaa696-ceca-425e-dcaf-c8353406d244"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'0fa9f20cc975': 334, '9fbe06e6241a': 333, 'b2beded3a485': 333}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nome_da_instancia = []\n",
+        "quantidade_de_requicao = []\n",
+        "\n",
+        "for v_instancia, k_requisicao in contador_de_requisicao.items():\n",
+        "  # print(v_contado, k_contado)\n",
+        "  nome_da_instancia.append(v_instancia)\n",
+        "  quantidade_de_requicao.append(k_requisicao)\n",
+        "\n",
+        "print(nome_da_instancia)\n",
+        "print(quantidade_de_requicao)\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kRBeGEeUahD_",
+        "outputId": "97732504-16f8-4866-a14b-355514bc2b62"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['0fa9f20cc975', '9fbe06e6241a', 'b2beded3a485']\n",
+            "[334, 333, 333]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def display():\n",
+        "  from IPython.display import HTML, display\n",
+        "  display(HTML(\"\"\"\n",
+        "    <style>\n",
+        "    #output-body {\n",
+        "      display: flex;\n",
+        "      align-items: center;\n",
+        "      justify-content: center;\n",
+        "    }\n",
+        "    </style>\n",
+        "\n",
+        "  \"\"\"))"
+      ],
+      "metadata": {
+        "id": "wmhb9VXztnh8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "display()\n",
+        "\n",
+        "fig = plt.figure(figsize=(8,6))\n",
+        "server = [\"docker_1\", \"docker_2\", \"docker_3\"]\n",
+        "largura = 0.20\n",
+        "grafh = plt.bar(server, quantidade_de_requicao, largura,color=\"orange\")\n",
+        "\n",
+        "plt.xticks(server)\n",
+        "plt.title(\"Algoritmo Weight\")\n",
+        "plt.xlabel(\"Nomes das Instâncias\")\n",
+        "plt.ylabel(\"Número de Requisição\")\n",
+        "\n",
+        "\n",
+        "for bar, v in zip(grafh, quantidade_de_requicao):\n",
+        "  plt.text(bar.get_x() + bar.get_width()/2.0, bar.get_height(), v , ha=\"center\", va=\"bottom\")\n",
+        "\n",
+        "plt.savefig(\"teste_1.pdf\", format=\"pdf\", transparent=True, dpi=300, bbox_inches=\"tight\")\n",
+        "\n",
+        "\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 405
+        },
+        "id": "M6gLu8iBx6vM",
+        "outputId": "76965380-d6a2-4869-ddb8-896dc64c4a7c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ],
+            "text/html": [
+              "\n",
+              "    <style>\n",
+              "    #output-body {\n",
+              "      display: flex;\n",
+              "      align-items: center;\n",
+              "      justify-content: center;\n",
+              "    }\n",
+              "    </style>\n",
+              "\n",
+              "  "
+            ]
+          },
+          "metadata": {}
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<Figure size 576x432 with 1 Axes>"
+            ],
+            "image/png": "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p9D07gTNIy57H/O4BY9/7KUkSVqGgYZ6+/jIjdrhJ9F0jXjj0Hny9mr3vWgeqAEwG9ivfTTkrsBdVbXwCSuWJElPMOjD79NoHkM5heYHxJlV9d0kP0oyFQgwF3hHO/+5NLezzaO5pe2AJ65SkiQNZ6ChXlVXA88fpv3ly5i/gIMHWZMkSV3lE+XG6MEHH2TnnXdm+vTpbL/99hxxxBEAHHjggUyfPp0dd9yRN73pTdx7772PW+6ss84iCV7cJ0la2Qz1MVpnnXX40Y9+xFVXXcXcuXM577zzuPTSSzn22GO56qqruPrqq9lqq6044YQT/rzMPffcw3HHHccuu/g8HU1uo/3R+vnPf54ddtiBGTNm8JKXvITrr79+pNVLE66r27ihPkZJWH/99QF4+OGHefjhh0nCU57yFACqigceeIDmWsDGRz7yET7wgQ+w7rrrTkjNUr9G+6P1LW95C9dccw1z587l0EMP5ZBDDpngbyCNrKvbuKG+ApYsWcKMGTN42tOexqte9ao/74EfcMAB/MVf/AU33ngj7373uwG44ooruPnmm9ljjz0msmSpL6P90TrUDnDfffc97sesNBl1dRs31FfAlClTmDt3Lrfccgu/+MUvuPba5s68U045hQULFvDc5z6XM844g0cffZRDDjmEY445ZoIrlvo3mh+tAJ/97Gd55jOfyaGHHsrxxx8/UWVLfevkNl5Vq/Rrp512qsngqKOOqk9+8pOPa7voootqjz32qDvvvLM22WST2nrrrWvrrbeuddZZp6ZNm1a//OUvJ6haqX+LFy+u3Xbbra655po/tz3yyCP1zne+s04++eQnzH/66afXfvvtN54lSitkVdvGgTm1jEx0T32MFi1axJ133gnAAw88wAUXXMCzn/1s5s2bBzQ/lmbPns1znvMcNtxwQ+644w7mz5/P/Pnz2XXXXZk9ezYzZ86cwG8g9WejjTZi991357zzzvtz25QpU9hnn30466yznjD/Pvvsw7e//e1xrFBaMV3axg31MVq4cCG77747O+64Iy984Qt51atexR577MGsWbPYYYcd2GGHHVi4cCGHH374RJcqjdpofrQC/PrXv/7zst/73vfYbrvtxr1maTS6uo0PvEOXrtpxxx258sorn9D+05/+dLnLXnjhhQOoSFp5Fi5cyKxZs1iyZAmPPvooe++9N3vssQcvfelLufvuu6kqpk+fzoknngjACSecwA9+8APWWmstNt54Y0477bQJ/gbSyLq6jac5PL/qWum9tH1tEl7R+JZV+99IkrTyJLm8qoY9f+ueurQ68Uerum4138Y9py5JUkcY6pIkdYShLklSRxjqkiR1hKEuSVJHGOqSJHWEoS5JUkcY6pIkdYShLklSRxjqkiR1hKEuSVJHGOqSJHWEoS5JUkcY6pIkdYShLklSRxjqkiR1hKEuSVJHGOqSJHWEoS5JUkcY6pIkdYShLklSRxjqkiR1hKEuSVJHGOqSJHWEoS5JUkcY6pIkdcRAQz3Jukl+keSqJNclOapt3zbJZUnmJTkjydpt+zrt+Lx2+jaDrE+SpC4Z9J76Q8DLq2o6MAN4TZJdgU8Ax1bVs4DFwIHt/AcCi9v2Y9v5JElSHwYa6tW4tx1dq30V8HLgm237acBe7fCe7Tjt9FckySBrlCSpKwZ+Tj3JlCRzgduBC4DfAHdW1SPtLLcAm7fDmwM3A7TT7wI2GXSNkiR1wcBDvaqWVNUMYAtgZ+A5K7rOJAclmZNkzqJFi1Z0dZIkdcK4Xf1eVXcCPwZeBGyUZM120hbAre3wrcCWAO30DYE/DrOuk6pqZlXNnDp16qBLlyRplTDoq9+nJtmoHX4S8CrgBppwf1M72yzgO+3w7HacdvqPqqoGWaMkSV2x5vJnWSHTgNOSTKH5AXFmVX03yfXAN5J8FLgS+HI7/5eB/0wyD/gTsM+A65MkqTMGGupVdTXw/GHab6I5v750+4PAPwyyJkmSusonykmS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHTGwUE+yZZIfJ7k+yXVJ3tu2H5nk1iRz29frepb5UJJ5SX6V5NWDqk2SpC5ac4DrfgR4X1VdkWQD4PIkF7TTjq2q/907c5LnAfsA2wNPB36Q5C+raskAa5QkqTMGtqdeVQur6op2+B7gBmDzERbZE/hGVT1UVb8F5gE7D6o+SZK6ZlzOqSfZBng+cFnb9K4kVyc5OcnGbdvmwM09i93CMn4EJDkoyZwkcxYtWjSosiVJWqUMPNSTrA+cBfyvqrobOBF4JjADWAgcM9p1VtVJVTWzqmZOnTp1ZZYrSdIqa6ChnmQtmkA/vaq+BVBVt1XVkqp6FPgijx1ivxXYsmfxLdo2SZLUh0Fe/R7gy8ANVfWpnvZpPbO9Ebi2HZ4N7JNknSTbAtsBvxhUfZIkdc0gr37/a+BtwDVJ5rZt/wq8OckMoID5wNsBquq6JGcC19NcOX+wV75LktS/gYV6VV0CZJhJ546wzNHA0YOqSZKkLvOJcpIkdYShLklSRxjqkiR1hKEuSVJHGOqSJHWEoS5JUkcY6pIkdYShLklSRxjqkiR1RN9PlEsyHXhpO/qTqrpqMCVJkqSx6GtPPcl7gdOBp7WvryZ59yALkyRJo9PvnvqBwC5VdR9Akk8APwc+M6jCJEnS6PR7Tj1Ab49pSxi+sxZJkjRB+t1TPwW4LMnZ7fheNH2lS5KkSaKvUK+qTyW5iKaPdIADqurKwZUlSZJGq++r36vq8iQ3A+sCJNmqqn4/sMokSdKojHhOPcn27fsbkvwa+C1wUfv+/cGXJ0mS+rW8C+UOb9//HdgV+O+q2hZ4JXDpIAuTJEmjs7xQ37J9f7iq/giskWSNqvoxMHOwpUmSpNFY3jn1M9r3O5OsD1wMnJ7kduC+gVYmSZJGZcQ99ao6rh3cE7gf+GfgPOA3wOsHW5okSRqNfq9+fzbN+fR7gdOSbAA8C/jjwCqTJEmj0u8T5b5Es6c+5H7glCSzkuy38suSJEmj1W+or1FVjw6NVNUSYFPgv4HDBlGYJEkanX5D/aYkBydZs329C7i8qn7OY7e9SZKkCdRvqL+Dpi/1BcCtwIuB/wlQVd8YTGmSJGk0+n32++3APgOuRZIkrYARQz3JoVX1H0k+A9TS06vqPQOrTJIkjcry9tRvaN/nDLoQSZK0YkYM9ao6p30/bagtyRrA+lV194BrkyRJo9DXhXJJvpbkKUnWA64Frk/y/sGWJkmSRqPfq9+f1+6Z70XT5eq2wNsGVZQkSRq9fkN9rSRr0YT67Kp6mGEunJMkSROn31D/AjAfWA+4OMnWgOfUJUmaRPq9T/144Piept8l2X0wJUmSpLFY3n3qb62qryY5ZBmzfGoANUmSpDFY3p76eu37BoMuRJIkrZjl3af+hfb9qLGsPMmWwFeAzWgurDupqo5L8lTgDGAbmnP1e1fV4iQBjgNeR9O96/5VdcVYPluSpNVNX+fUk5zC8I+J/cflLPoI8L6quiLJBsDlSS4A9gd+WFUfT/JB4IPAB4DXAtu1r12AE9t3SZK0HH2FOvDdnuF1gTfS9Ng2oqpaCCxsh+9JcgOwObAnsFs722nAhTShvifwlaoq4NIkGyWZ1q5HkiSNoN+r38/qHU/ydeCS0XxQkm2A5wOXAZv1BPUfaA7PQxP4N/csdkvbZqhLkrQc/d6nvrTtgKf1O3OS9YGzgP+19DPj273yUT3IJslBSeYkmbNo0aLRLCpJUmf1++z3e5LcPfQOnENzuLyfZdeiCfTTq+pbbfNtSaa106cBt7fttwJb9iy+Rdv2OFV1UlXNrKqZU6dO7acMSZI6r69Qr6oNquopPe9/ufQh+eG0V7N/GbihqnrvaZ8NzGqHZwHf6WnfL41dgbs8ny5JUn/6vfr9BSNNH+G2s7+m6fjlmiRz27Z/BT4OnJnkQOB3wN7ttHNpbmebR3NL2wH91CdJkvq/+v1zwAuAq4EAOwJzgAdpzoe/fLiFquqSdv7hvGKY+Qs4uM+aJElSj34vlFsA7NSex96J5ir2W6tq96oaNtAlSdL46jfUn11V1wyNVNW1wHMHU5IkSRqLfg+/X53kS8BX2/F9aQ7FS5KkSaLfUD8AeCfw3nb8YppHuEqSpEmi3yfKPZjk88C5VfWrAdckSZLGoN+Hz7wBmAuc147PSDJ7gHVJkqRR6vdCuSOAnYE7AapqLrDtYEqSJElj0W+oP1xVdy3VNqrntUuSpMHq90K565K8BZiSZDvgPcDPBleWJEkarX731N8NbA88BHwduIvHroSXJEmTQL8dutxfVR+uqhdW1UzgP4ETBluaJEkajRFDPcmOSc5Pcm2SjyaZluQs4IfA9eNToiRJ6sfy9tS/CHwN+H+AO2hua/sN8KyqOnawpUmSpNFY3oVy61TVqe3wr5K8p6oOHXBNkiRpDJYX6usmeT6PdZ/6UO/4CP2oS5Kkcba8UF8IfKpn/A8948vsR12SJI2/EUO9qnYfr0IkSdKK6fc+dUmSNMkZ6pIkdYShLklSR/Tb9WqSvDXJ4e34Vkl2HmxpkiRpNPrdU/8c8CLgze34PcBnB1KRJEkak357adulql6Q5EqAqlqcZO0B1iVJkkap7/7Uk0yh7UM9yVTg0YFVJUmSRq3fUD8eOBt4WpKjgUuAjw2sKkmSNGp9HX6vqtOTXA68guYRsXtV1Q0DrUySJI3KiKGe5Kk9o7cDX++dVlV/GlRhkiRpdJa3p345zXn0AFsBi9vhjYDfA9sOsjhJktS/Ec+pV9W2VfUM4AfA66tq06raBPg74PzxKFCSJPWn3wvldq2qc4dGqur7wIsHU5IkSRqLfu9TX5DkMOCr7fi+wILBlCRJksai3z31NwNTaW5r+1Y7/OYRl5AkSeOq31va/gS8d8C1SJKkFWAvbZIkdYShLklSRxjqkiR1RL/9qW+R5Owki5LcnuSsJFsMujhJktS/fvfUTwFmA9OApwPntG2SJGmS6DfUp1bVKVX1SPs6lea2thElObnds7+2p+3IJLcmmdu+Xtcz7UNJ5iX5VZJXj/rbSJK0Gus31P+Y5K1JprSvtwJ/7GO5U4HXDNN+bFXNaF/nAiR5HrAPsH27zOfaPtwlSVIf+g31fwT2Bv4ALATeBBywvIWq6mKg357c9gS+UVUPVdVvgXnAzn0uK0nSam+5D59p95Y/VlVvWImf+64k+wFzgPdV1WJgc+DSnnluaduGq+kg4CCArbbaaiWWJUnSqmu5e+pVtQTYOsnaK+kzTwSeCcyg2es/ZrQrqKqTqmpmVc2cOnW5p/YlSVot9Nuhy03AT5PMBu4baqyqT432A6vqtqHhJF8EvtuO3gps2TPrFm2bJEnqQ7/n1H9DE75rABv0vEYtybSe0TcCQ1fGzwb2SbJOkm2B7YBfjOUzJElaHfXboctRAEmeXFX397vyJF8HdgM2TXILcASwW5IZQAHzgbe3n3FdkjOB64FHgIPbQ/+SJKkPfYV6khcBXwbWB7ZKMh14e1X900jLVdVw3bN+eYT5jwaO7qcmSZL0eP0efv808Grae9Or6irgZQOqSZIkjUHfHbpU1c1LNXloXJKkSaTfq99vTvJioJKsBbwXuGFwZUmSpNHqd0/9HcDBNA+DuZXmHvODB1STJEkag36vfr8D2HfAtUiSpBXQ79Xv2wLvBrbpXWYlPzpWkiStgH7PqX+b5la0c4BHB1aNJEkas35D/cGqOn6glUiSpBXSb6gfl+QI4HzgoaHGqrpiIFVJkqRR6zfUdwDeBrycxw6/VzsuSZImgX5D/R+AZ1TV/x1kMZIkaez6vU/9WmCjAdYhSZJWUL976hsBNyb5JY8/p+4tbZIkTRL9hvoRA61CkiStsH6fKHfRoAuRJEkrZpmhnuTJVXV/O3wPzdXuAGsDawH3VdVTBl+iJEnqx0h76vsneWpVfbSqNhhqTBJgT2DXgVcnSZL6tsyr36vqc8Bvk7xtqfaqqm8Drx5wbZIkaRRGPKdeVacDJPn7nuY1gJnAgwOsS5IkjVK/V7+/vmf4EWA+zSF4SZI0SfR79fsBgy5EkiStmBFDPcnhI0yuqvr3lVyPJEkao+Xtqd83TNt6wIHAJoChLknSJLG8C+WOGRpOsgHwXuAA4BvAMctaTpIkjb/lnlNP8lTgEGBf4DTgBVW1eNCFSZKk0VneOfVPAn8PnATsUFX3jktVkiRp1JbX9er7gKcDhwELktzdvu5Jcvfgy5MkSf1a3jn1fvtblyRJE8zQliSpIwx1SZI6wlCXJKkjDHVJkjrCUJckqSMMdUmSOsJQlySpIwx1SZI6wlCXJKkjBhrqSU5OcnuSa3vanprkgiS/bt83btuT5Pgk85JcneQFg6xNkqSuGfSe+qnAa5Zq+yDww6raDvhhOw7wWmC79nUQcOKAa5MkqVMGGupVdTHwp6Wa96TpwpX2fa+e9q9U41JgoyTTBlmfJEldMhHn1DerqoXt8B+AzdrhzYGbe+a7pW2TJEl9mNAL5aqqgBrtckkOSjInyZxFixYNoDJJklY9ExHqtw0dVm/fb2/bbwW27Jlvi7btCarqpKqaWVUzp06dOtBiJUlaVUxEqM8GZrXDs4Dv9LTv114FvytwV89hekmStBxrDnLlSb4O7AZsmuQW4Ajg48CZSQ4Efgfs3c5+LvA6YB5wP3DAIGuTJKlrBhrqVfXmZUx6xTDzFnDwIOuRJKnLfKKcJEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEYa6JEkdYahLktQRa07UByeZD9wDLAEeqaqZSZ4KnAFsA8wH9q6qxRNVoyRJq5KJ3lPfvapmVNXMdvyDwA+rajvgh+24JEnqw0SH+tL2BE5rh08D9pq4UiRJWrVMZKgXcH6Sy5Mc1LZtVlUL2+E/AJsNt2CSg5LMSTJn0aJF41GrJEmT3oSdUwdeUlW3JnkacEGSG3snVlUlqeEWrKqTgJMAZs6cOew8kiStbiZsT72qbm3fbwfOBnYGbksyDaB9v32i6pMkaVUzIaGeZL0kGwwNA38LXAvMBma1s80CvjMR9UmStCqaqMPvmwFnJxmq4WtVdV6SXwJnJjkQ+B2w9wTVJ0nSKmdCQr2qbgKmD9P+R+AV41+RJEmrvsl2S5skSRojQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeoIQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeoIQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeoIQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeoIQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeoIQ12SpI4w1CVJ6ghDXZKkjjDUJUnqCENdkqSOMNQlSeqISRfqSV6T5FdJ5iX54ETXI0nSqmJShXqSKcBngdcCzwPenOR5E1uVJEmrhkkV6sDOwLyquqmq/i/wDWDPCa5JkqRVwmQL9c2Bm3vGb2nbJEnScqw50QWMRZKDgIPa0XuT/Goi61mGTYE7Vsqa9s1KWY20kq2cbdztW5PTZP5/+NbLmjDZQv1WYMue8S3atsepqpOAk8arqLFIMqeqZk50HdKguI2ry1bV7XuyHX7/JbBdkm2TrA3sA8ye4JokSVolTKo99ap6JMm7gP8DTAFOrqrrJrgsSZJWCZMq1AGq6lzg3ImuYyWY1KcHpJXAbVxdtkpu36mqia5BkiStBJPtnLokSRojQ12SpI4w1JeS5Mgk/zLKZXZL8t2VXMfLklyR5JEkb1qZ69bqbRJt44ckuT7J1Ul+mGSZ995K/ZpE2/c7klyTZG6SS8brkeeG+gRLsqyLFX8P7A98bfyqkVa+EbbxK4GZVbUj8E3gP8avKmnlGGH7/lpV7VBVM2i27U+NRz2GOpDkw0n+O8klwLPbthlJLm33Is5OsnHb/qwkP0hyVbsn/cyl1vXCJFcmeWaSnZJclOTyJP8nybR2nguTfDrJHOC9w9VUVfOr6mrg0YF+ea0WJuk2/uOqur8dvZTmYVPSqE3S7fvuntH1gPG5Kr2qVusXsBNwDfBk4CnAPOBfgKuBv2nn+Tfg0+3wZcAb2+F12+V2A74LvBi4HNgKWAv4GTC1nfd/0Nx3D3Ah8Lk+6zsVeNNE/518rbqvyb6Nt/OfABw20X8rX6veazJv38DBwG9o+jTZbjz+HpPuPvUJ8FLg7Gr3GJLMpvlVtVFVXdTOcxrwX0k2ADavqrMBqurBdhmA59Lc1/i3VbUgyV8BfwVc0E6fAizs+dwzBv3FpNak3saTvBWYCfzNinxJrbYm7fZdVZ8FPpvkLcBhwKwV/K7LZaivPAtpfvU9H1gABLiuql60jPnvG6/CpJVkpW/jSV4JfJhmj+qhlVWoNAaD/H/4N4ATV6y8/nhOHS4G9krypPZX3Otp/rEWJ3lpO8/bgIuq6h7gliR7ASRZJ8mT23nuBPYA/r8kuwG/AqYmeVE771pJth+fryQ9zqTcxpM8H/gC8Iaqun3FvqJWY5N1+96uZ3QP4Ndj+3qjs9rvqVfVFUnOAK4CbqfpVAaawySfb//BbwIOaNvfBnwhyb8BDwP/0LOu25L8HfB94B+BNwHHJ9mQ5m/9aaCvZ9kneSFwNrAx8PokR1WVPwo0apN1Gwc+CaxPc1gU4PdV9Yaxfk+tnibx9v2u9kjUw8BixuHQO/iYWEmSOsPD75IkdcRqf/h9oiX5MD2Hf1r/VVVHT0Q90srmNq4um2zbt4ffJUnqCA+/S5LUEYa6pEkpyT5J/nKi65BWJYa6NGBJKskxPeP/kuTICSzpCZLMT7LpCq5j1L1jtcttlOSflmp7Ns29vf++AvU8Pck3x7q8tCoy1KXBewj4+xUNzQ7bCPinpdq2Bd5Fc5/xZmNZaVUtqCq7LdZqxVCXBu8RmmdK//PSE5Jsk+RHeaxP8a3a9lOTnNj2MnVTmv6eT05yQ5JTe5b/2yQ/b3ub+q8k67ftH89jfZX/72E+d5Mk5ye5LsmXaB6JOTTt222vVNclOahtm9LWdG2aPqKf8F2WWv+FST6R5Bdpes96adu+fds2t61tO+DjwDPbtk+23+H9wI+B44Fde/5WNyT5Ylvb+Ume1E57Qs9b7fzX9iz7k3baFUle3LZPS3Jx+9nX9jyBTFo1TXQPO758df0F3EvTe9R8YEOaHqSObKedA8xqh/8R+HY7fCrN86ID7AncDexA80P8cmAGsCnNIzLXa5f5AHA4sAnNIy6H7m7ZaJiajgcOb4f3oOkWctN2/Knt+5OAa9v17QRc0LP8cOs8EviXdvhC4Jh2+HXAD9rhzwD7tsNrt5+xDXBtz3rWBJ7SDm9K0+tW2vkeAWa0084E3toOD9fz1p/X246v2w5vB8xph98HfLgdngJsMNHbiy9fK/LyPnVpHFTV3Um+ArwHeKBn0ouAv2+H/xP4j55p51RVJbkGuK2qrgFIch1NYG0BPA/4afuY1bWBnwN3AQ8CX07yXZouJZf2sqHPrarvJVncM+09Sd7YDm9JE4K/Ap6R5DPA94Dz+/ja32rfL2/rpa3vw0m2AL5VVb9ua+8V4GNJXgY8CmwODB2C/21Vze1db0bueWvIWsAJSWYAS4ChC/B+CZycZC2aH1RzkVZhHn6Xxs+ngQNpuoXsx1CvZY/2DA+Nr0kTfhdU1Yz29byqOrCqHgF2Br4J/B1wXr8FpunI4pXAi6pqOnAlzR7uYmA6zR74O4AvjaL+JW29VNXXgDfQ/LA5N8nLh1luX2AqsFNVzQBuo9n77l3n49bbh39u1zOdppvXtdt6Lqb5gXMrcGqS/fpcnzQpGerSOKmqP9EcMj6wp/lnwD7t8L7AT0axykuBv07yLIAk6yX5y/ac9IZVdS5NmE0fZtmLgbe0y72WpuMgaE4PLK6q+5M8h8fOZ28KrFFVZ9H0C/2CUdT5Z0meAdxUVccD3wF2BO4BNuiZbUPg9qp6OMnuwNYjrbNG7nmrd50Lq+pRmg49prTzbk1zFOSLND9UxvS9pMnCw+/S+DqG5qruIe8GTknyfmARj/UktVxVtSjJ/sDXk6zTNh9GE5LfSbIuzd78IcMsflS73HU0Pyx+37afB7wjyQ00h9wvbds3b+sc2hH4UL91LmVv4G1JHgb+AHysqv6U5KftRW3fBz4BnNOedpgD3NjHeofreevRnumfA85q98TP47G+sHcD3t/Wcy/gnrpWaT4mVpKkjvDwuyRJHWGoS5LUEYa6JEkdYahLktQRhrokSR1hqEuS1BGGuiRJHWGoS5LUEf8/3X7QrXUxbU8AAAAASUVORK5CYII=\n"
+          },
+          "metadata": {
+            "needs_background": "light"
+          }
+        }
+      ]
+    }
+  ]
+}
